@@ -2,7 +2,7 @@
 
 ## Overview
 
-This workflow demonstrates how to use a **Tekton Cluster** (running on a spare machine) to automate CI/CD tasks triggered from a main desktop. The pipeline pulls code, processes it, and pushes the results to GitHub or a DVC remote.
+This workflow demonstrates how to use a **Tekton Cluster** (running on a spare machine) to automate CI/CD tasks triggered from a main desktop. The pipeline pulls, processes it, and pushes the results to GitHub.
 
 ---
 
