@@ -20,3 +20,12 @@ This workflow demonstrates how to use a **Tekton Cluster** (running on a spare m
      | 4. Push final code/results to GitHub or remote storage
      ↓
 [GitHub / DVC Remote]
+```
+---
+
+## 🧩 Components Needed
+1. Kubernetes on spare machine (e.g., Minikube, kind, or k3s)
+2. Tekton Pipelines installed in Kubernetes
+3. Git installed and authorized to push to GitHub
+
+---
