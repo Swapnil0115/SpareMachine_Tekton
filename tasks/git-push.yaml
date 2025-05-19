@@ -13,6 +13,8 @@ spec:
       image: alpine/git
       script: |
         #!/bin/sh
+        git config --global credential.helper store
+        echo "https://swapnil0115_token@github.com" > ~/.git-credentials
         cd /workspace/output
         git add .
         git commit -m "Automated commit from Tekton pipeline"
