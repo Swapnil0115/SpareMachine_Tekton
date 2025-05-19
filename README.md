@@ -30,7 +30,9 @@ This workflow demonstrates how to use a **Tekton Cluster** (running on a spare m
 
 ---
 
-## Setting up (Tekton)
+## Setup
+
+### Setting up Tekton
 
 1. Install Docker and enable Kubernetes in the Spare Machine
 2. Install Tekton Pipelines :</br>
@@ -38,4 +40,4 @@ This workflow demonstrates how to use a **Tekton Cluster** (running on a spare m
 3. Verify using ``kubectl get pods --namespace tekton-pipelines``.
    You should see pods with names like tekton-pipelines-controller and tekton-pipelines-webhook in the Running state.
 
---
+---
