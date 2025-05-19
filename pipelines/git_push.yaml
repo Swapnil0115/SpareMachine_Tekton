@@ -1,0 +1,31 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: push-to-github
+spec:
+  tasks:
+    - name: clone-repo
+      taskRef:
+        name: git-clone
+      params:
+        - name: url
+          value: https://github.com/Swapnil0115/SpareMachine_Tekton.git
+        - name: revision
+          value: main
+
+    - name: run-tests
+      taskRef:
+        name: run-tests
+      runAfter:
+        - clone-repo
+
+    - name: push-to-github
+      taskRef:
+        name: git-push
+      runAfter:
+        - run-tests
+      params:
+        - name: repo-url
+          value: https://github.com/Swapnil0115/SpareMachine_Tekton.git
+        - name: branch
+          value: main

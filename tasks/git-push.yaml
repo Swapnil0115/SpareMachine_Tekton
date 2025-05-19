@@ -1,0 +1,19 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: git-push
+spec:
+  params:
+    - name: repo-url
+      type: string
+    - name: branch
+      type: string
+  steps:
+    - name: push
+      image: alpine/git
+      script: |
+        #!/bin/sh
+        cd /workspace/output
+        git add .
+        git commit -m "Automated commit from Tekton pipeline"
+        git push $(params.repo-url) $(params.branch)
