@@ -5,7 +5,7 @@ metadata:
 spec:
   serviceAccountName: pipeline
   triggers:
-    - binding:
-        ref: github-push-binding
+    - bindings:
+        - ref: github-push-binding
       template:
         ref: pipeline-trigger-template
