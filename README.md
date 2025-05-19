@@ -41,5 +41,9 @@ This workflow demonstrates how to use a **Tekton Cluster** (running on a spare m
    You should see pods with names like tekton-pipelines-controller and tekton-pipelines-webhook in the Running state.
 4. Download tekton (https://github.com/tektoncd/cli/releases) and add into PATH under environment variables.
 5. Verify in cmd using ``tkn version``
+6. Use the command below to enable dashboard: </br>
+   ``kubectl apply --filename https://storage.googleapis.com/tekton-releases/dashboard/latest/release.yaml``
+7. Enable dashboard using ``kubectl proxy``.
+8. Browse using ``http://localhost:8001/api/v1/namespaces/tekton-pipelines/services/tekton-dashboard:http/proxy/``.
 
 ---
