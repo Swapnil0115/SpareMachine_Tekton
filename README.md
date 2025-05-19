@@ -47,3 +47,7 @@ This workflow demonstrates how to use a **Tekton Cluster** (running on a spare m
 8. Browse using ``http://localhost:8001/api/v1/namespaces/tekton-pipelines/services/tekton-dashboard:http/proxy/``
 
 ---
+
+
+![image](https://github.com/user-attachments/assets/5378faa5-458d-4ffd-9fa0-8e07b62acb0f)
+
