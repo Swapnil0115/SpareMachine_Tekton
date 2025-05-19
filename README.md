@@ -39,5 +39,7 @@ This workflow demonstrates how to use a **Tekton Cluster** (running on a spare m
    ``kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml``
 3. Verify using ``kubectl get pods --namespace tekton-pipelines``.
    You should see pods with names like tekton-pipelines-controller and tekton-pipelines-webhook in the Running state.
+4. Download tekton (https://github.com/tektoncd/cli/releases) and add into PATH under environment variables.
+5. Verify in cmd using ``tkn version``
 
 ---
