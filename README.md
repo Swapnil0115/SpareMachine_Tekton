@@ -48,6 +48,16 @@ This workflow demonstrates how to use a **Tekton Cluster** (running on a spare m
 
 ---
 
-
 ![image](https://github.com/user-attachments/assets/5378faa5-458d-4ffd-9fa0-8e07b62acb0f)
+
+---
+
+### Setting up Pipelines, Tasks, EventListeners in Tekton
+
+1. Create the pipelines/tasks using ``kubectl apply -f <yaml_file_name> -n <namespace_name>``.
+2. Forward the github-eventlistener port to 8080.
+3. Install NGROK, and make the port visible.
+4. Create a webhook using the ngrok link.
+
+To do: fix the event-listener pod.(event-listener service is running, but pod is throwing crashloopbackoff error)
 
