@@ -39,13 +39,13 @@ _We will try to push the python files (one with correct syntax and one with inco
 1. Install Docker and enable Kubernetes in the Spare Machine.
 2. Install Tekton Pipelines :</br>
    ``kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml``
-3. Verify using ``kubectl get pods --namespace tekton-pipelines``.
+3. Verify using -> ``kubectl get pods --namespace tekton-pipelines``.
    You should see pods with names like tekton-pipelines-controller and tekton-pipelines-webhook in the Running state.
 4. Download tekton (https://github.com/tektoncd/cli/releases) and add into PATH under environment variables.
 5. Verify in cmd using ``tkn version``
 6. Use the command below to enable dashboard: </br>
    ``kubectl apply --filename https://storage.googleapis.com/tekton-releases/dashboard/latest/release.yaml``
-7. Forward the dashboard service to any port ``kubectl port-forward svc/tekton-dashboard -n tekton-pipelines 9097:9097``
+7. Forward the dashboard service to any port to access from localhost using this command -> ``kubectl port-forward svc/tekton-dashboard -n tekton-pipelines 9097:9097``
 
 ---
 
