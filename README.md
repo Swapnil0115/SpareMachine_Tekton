@@ -4,6 +4,8 @@
 
 This workflow demonstrates how to use a **Tekton Cluster** (running on a spare machine) to automate CI/CD tasks triggered from a main desktop. The pipeline pulls, processes it, and pushes the results to GitHub.
 
+_We will try to push the python files (one with correct syntax and one with incorrect) to check if tekton halts the commit or not._
+
 ---
 
 ## Workflow Diagram
