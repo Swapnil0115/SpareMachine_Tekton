@@ -45,8 +45,7 @@ _We will try to push the python files (one with correct syntax and one with inco
 5. Verify in cmd using ``tkn version``
 6. Use the command below to enable dashboard: </br>
    ``kubectl apply --filename https://storage.googleapis.com/tekton-releases/dashboard/latest/release.yaml``
-7. Enable dashboard using ``kubectl proxy``
-8. Browse using ``http://localhost:8001/api/v1/namespaces/tekton-pipelines/services/tekton-dashboard:http/proxy/``
+7. Forward the dashboard service to any port ``kubectl port-forward svc/tekton-dashboard -n tekton-pipelines 9097:9097``
 
 ---
 
