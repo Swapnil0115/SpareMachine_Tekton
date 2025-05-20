@@ -1,6 +1,6 @@
 # CI/CD Workflow with Tekton Cluster
 
-## Overview
+<h2 align="center"> Overview </h2>
 
 This workflow demonstrates how to use a **Tekton Cluster** (running on a spare machine) to automate CI/CD tasks triggered from a main desktop. The pipeline pulls, processes it, and pushes the results to GitHub.
 
@@ -8,7 +8,7 @@ _We will try to push the python files (one with correct syntax and one with inco
 
 ---
 
-## Workflow Diagram
+<h2 align="center"> Workflow Diagram </h2>
 
 ```plaintext
 [Main Desktop]
@@ -25,14 +25,14 @@ _We will try to push the python files (one with correct syntax and one with inco
 ```
 ---
 
-## 🧩 Components Needed
+<h2 align="center"> 🧩 Components Needed </h2>
 1. Kubernetes on spare machine (e.g., Minikube, kind, or k3s)
 2. Tekton Pipelines installed in Kubernetes
 3. Git installed and authorized to push to GitHub
 
 ---
 
-## Setup
+<h2 align="center">Setup</h2>
 
 ### Setting up Tekton
 
