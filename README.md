@@ -82,5 +82,6 @@ To fix this:
 2. If ``set-security-context: "false"``, change it to ``set-security-context: "true"``. ([Reference](https://tekton.dev/docs/pipelines/additional-configs/#running-taskruns-and-pipelineruns-with-restricted-pod-security-standards))
 3. Commit and Push again.
 
----
-
+#### Error 3: Failed to create pod due to config error
+More details: container has runAsNonRoot and image will run as root
+Fix: To do
