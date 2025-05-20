@@ -8,6 +8,7 @@ spec:
     - name: clone-repo
       taskRef:
         name: git-clone
+        kind: Task
       params:
         - name: url
           value: https://github.com/Swapnil0115/SpareMachine_Tekton.git
@@ -17,12 +18,14 @@ spec:
     - name: run-tests
       taskRef:
         name: run-tests
+        kind: Task
       runAfter:
         - clone-repo
 
     - name: push-to-github
       taskRef:
         name: git-push
+        kind: Task
       runAfter:
         - run-tests
       params:
