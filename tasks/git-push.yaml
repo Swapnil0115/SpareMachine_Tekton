@@ -20,3 +20,11 @@ spec:
         git add .
         git commit -m "Automated commit from Tekton pipeline"
         git push $(params.repo-url) $(params.branch)
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+            - ALL
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault

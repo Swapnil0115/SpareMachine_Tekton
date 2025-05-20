@@ -15,3 +15,11 @@ spec:
       script: |
         #!/bin/sh
         git clone $(params.url) --branch $(params.revision) /workspace/output
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+            - ALL
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault

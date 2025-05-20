@@ -11,3 +11,11 @@ spec:
         #!/bin/sh
         cd /workspace/output
         python -m unittest discover
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+            - ALL
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
