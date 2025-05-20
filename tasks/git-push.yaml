@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: git-push
-  namespace: tekton-pipelines
+  namespace: spare-machine
 spec:
   params:
     - name: repo-url

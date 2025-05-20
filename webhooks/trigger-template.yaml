@@ -2,7 +2,7 @@ apiVersion: triggers.tekton.dev/v1beta1
 kind: TriggerTemplate
 metadata:
   name: pipeline-trigger-template
-  namespace: tekton-pipelines
+  namespace: spare-machine
 spec:
   params:
     - name: gitrevision
