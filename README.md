@@ -96,3 +96,7 @@ runAsUser: 1000
 Output:
 ![image](https://github.com/user-attachments/assets/07ab3cde-7f23-4961-8f93-2568b9942251)
 
+to do:
+fix workspaces and environments for the nonrootuser.
+Error: ``message: '"step-push" exited with code 128'``
+Run this to get more details on error: ``kubectl logs <pod_name> -c step-push -n tekton-pipelines``
