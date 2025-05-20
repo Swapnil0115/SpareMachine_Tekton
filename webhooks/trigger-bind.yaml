@@ -2,7 +2,7 @@ apiVersion: triggers.tekton.dev/v1beta1
 kind: TriggerBinding
 metadata:
   name: github-push-binding
-  namespace: spare-machine
+  namespace: tekton-pipelines
 spec:
   params:
     - name: gitrevision

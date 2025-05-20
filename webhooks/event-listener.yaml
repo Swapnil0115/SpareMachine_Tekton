@@ -2,7 +2,7 @@ apiVersion: triggers.tekton.dev/v1beta1
 kind: EventListener
 metadata:
   name: github-listener
-  namespace: spare-machine
+  namespace: tekton-pipelines
 spec:
   serviceAccountName: pipeline
   triggers:

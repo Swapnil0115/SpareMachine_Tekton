@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: run-tests
-  namespace: spare-machine
+  namespace: tekton-pipelines
 spec:
   steps:
     - name: test
@@ -12,6 +12,8 @@ spec:
         cd /workspace/output
         python -m unittest discover
       securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
         allowPrivilegeEscalation: false
         capabilities:
           drop: ["ALL"]

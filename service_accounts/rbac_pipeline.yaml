@@ -2,11 +2,11 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: pipeline-triggers-admin
-  namespace: spare-machine
+  namespace: tekton-pipelines
 subjects:
   - kind: ServiceAccount
     name: pipeline
-    namespace: spare-machine
+    namespace: tekton-pipelines
 roleRef:
   kind: ClusterRole
   name: cluster-admin

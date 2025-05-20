@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: git-clone
-  namespace: spare-machine
+  namespace: tekton-pipelines
 spec:
   params:
     - name: url
@@ -16,6 +16,8 @@ spec:
         #!/bin/sh
         git clone $(params.url) --branch $(params.revision) /workspace/output
       securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
         allowPrivilegeEscalation: false
         capabilities:
           drop: ["ALL"]

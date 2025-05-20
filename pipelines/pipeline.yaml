@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
   name: push-to-github
-  namespace: spare-machine
+  namespace: tekton-pipelines
 spec:
   tasks:
     - name: clone-repo
