@@ -84,4 +84,15 @@ To fix this:
 
 #### Error 3: Failed to create pod due to config error
 More details: container has runAsNonRoot and image will run as root
-Fix: To do
+</br>
+Fix: 
+1. Add this under securityContext in all tasks ->
+```yaml
+runAsNonRoot: true
+runAsUser: 1000
+```
+3. Push again.
+
+Output:
+![image](https://github.com/user-attachments/assets/07ab3cde-7f23-4961-8f93-2568b9942251)
+
