@@ -100,3 +100,11 @@ to do:
 fix workspaces and environments for the nonrootuser.
 Error: ``message: '"step-push" exited with code 128'``
 Run this to get more details on error: ``kubectl logs <pod_name> -c step-push -n tekton-pipelines``
+
+---
+
+<h2 align="center">GitHub branch protection rules Setup</h2>
+
+To Do:
+To ensure that all changes go through Tekton before merging to main, 
+setup GitHub branch protection rules and a Tekton-based CI workflow that reports status checks to GitHub.
