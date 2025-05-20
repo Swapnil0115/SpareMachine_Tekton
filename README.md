@@ -34,7 +34,7 @@ This workflow demonstrates how to use a **Tekton Cluster** (running on a spare m
 
 ### Setting up Tekton
 
-1. Install Docker and enable Kubernetes in the Spare Machine
+1. Install Docker and enable Kubernetes in the Spare Machine.
 2. Install Tekton Pipelines :</br>
    ``kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml``
 3. Verify using ``kubectl get pods --namespace tekton-pipelines``.
@@ -55,9 +55,10 @@ This workflow demonstrates how to use a **Tekton Cluster** (running on a spare m
 ### Setting up Pipelines, Tasks, EventListeners in Tekton
 
 1. Create the pipelines/tasks using ``kubectl apply -f <yaml_file_name> -n <namespace_name>``.
-2. Forward the github-eventlistener port to 8080.
-3. Install NGROK, and make the port visible.
-4. Create a webhook using the ngrok link.
+2. Create a role binding service account (needed for the event-listener).
+3. Forward the github-eventlistener port to 8080.
+4. Install NGROK, and make the port visible.
+5. Create a webhook using the ngrok link.
 
 To do: fix the event-listener pod.(event-listener service is running, but pod is throwing crashloopbackoff error)
 
