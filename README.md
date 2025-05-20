@@ -37,15 +37,16 @@ _We will try to push the python files (one with correct syntax and one with inco
 ### Setting up Tekton
 
 1. Install Docker and enable Kubernetes in the Spare Machine.
-2. Install Tekton Pipelines :</br>
+2. Install Tekton Interceptors using ``kubectl apply --filename https://storage.googleapis.com/tekton-releases/triggers/latest/interceptors.yaml``
+3. Install Tekton CRDs :</br>
    ``kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml``
-3. Verify using -> ``kubectl get pods --namespace tekton-pipelines``.
+4. Verify using -> ``kubectl get pods --namespace tekton-pipelines``.
    You should see pods with names like tekton-pipelines-controller and tekton-pipelines-webhook in the Running state.
-4. Download tekton (https://github.com/tektoncd/cli/releases) and add into PATH under environment variables.
-5. Verify in cmd using ``tkn version``
-6. Use the command below to enable dashboard: </br>
+5. Download tekton (https://github.com/tektoncd/cli/releases) and add into PATH under environment variables.
+6. Verify in cmd using ``tkn version``
+7. Use the command below to enable dashboard: </br>
    ``kubectl apply --filename https://storage.googleapis.com/tekton-releases/dashboard/latest/release.yaml``
-7. Forward the dashboard service to any port to access from localhost using this command -> ``kubectl port-forward svc/tekton-dashboard -n tekton-pipelines 9097:9097``
+8. Forward the dashboard service to any port to access from localhost using this command -> ``kubectl port-forward svc/tekton-dashboard -n tekton-pipelines 9097:9097``
 
 ---
 
@@ -63,4 +64,23 @@ _We will try to push the python files (one with correct syntax and one with inco
 6. Create a webhook(application/json) using the ngrok link. _(json passed will be used to pull the "refs" and the "clone_url" defined in the trigger-bind.yaml file)_
 
 To do: fix the event-listener pod. _(event-listener service is running, but pod is throwing crashloopbackoff error)_
+
+#### Error 1: Interceptors 
+Fix for the event-listener:
+It was due to the error: "error":"Timed out waiting on CaBundle to available for clusterInterceptor: Timed out waiting on CaBundle to available for Interceptor: empty caBundle in clusterInterceptor spec".
+
+To fix this:
+1. Ensure the Tekton Triggers Custom Resource Definitions (CRDs) and controller are installed properly by running ``kubectl apply -f https://storage.googleapis.com/tekton-releases/triggers/latest/release.yaml``
+2. Ensure Tekton Interceptors are installed (We missed this in setup on the first setup).
+``kubectl apply --filename https://storage.googleapis.com/tekton-releases/triggers/latest/interceptors.yaml``
+4. This resolves the clusterInterceptor error. (As the name suggest, interceptors were missing).
+5. Forward the port for event-listener and setup webhooks again using ngrok.
+6. Commit and push
+
+#### Error 2: SecurityContext
+1. Run ``kubectl edit configmap feature-flags -n tekton-pipelines``
+2. If ``set-security-context: "false"``, change it to ``set-security-context: "true"``. ([Reference](https://tekton.dev/docs/pipelines/additional-configs/#running-taskruns-and-pipelineruns-with-restricted-pod-security-standards))
+3. Commit and Push again.
+
+---
 
