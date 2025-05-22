@@ -102,7 +102,7 @@ Error: ``message: '"step-push" exited with code 128'`` </br>
 Run this to get more details on error: ``kubectl logs <pod_name> -c step-push -n tekton-pipelines``</br>
 
 1. NonRootUser cannot cd to /workspace/output.
-2. Create a workspace _(Workspaces allow Tasks to declare parts of the filesystem that need to be provided at runtime by TaskRuns. A Taskrun can use existing volumes or create a new one and discard after run.)_
+2. Create a workspace _(Workspaces allow Tasks to declare parts of the filesystem that need to be provided at runtime by TaskRuns. A Taskrun can use existing volumes or create a new one and discard after run.)_ [Refer](https://tekton.dev/docs/pipelines/workspaces/)
 
 ---
 
