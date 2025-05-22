@@ -15,6 +15,13 @@ spec:
           name: push-to-github
         workspaces:
           - name: tekton-learning-workspace
+            volumeClaimTemplate:
+              spec:
+                accessModes:
+                  - ReadWriteOnce
+                resources:
+                  requests:
+                    storage: 1Gi
         params:
           - name: url
             value: $(tt.params.gitrepositoryurl)
