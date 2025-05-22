@@ -8,8 +8,6 @@ spec:
   workspaces:
     - name: tekton-learning-workspace
       volumeClaimTemplate:
-        metadata:
-          name: pipeline-pvc
         spec:
           accessModes:
             - ReadWriteOnce
