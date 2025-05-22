@@ -4,20 +4,17 @@ metadata:
   name: pipeline-trigger-template
   namespace: tekton-pipelines
 spec:
-  workspaces:
-    - name: tekton-learning-workspace
-      description: The workspace where the cloned repository will be stored.
   params:
     - name: gitrevision
     - name: gitrepositoryurl
   resourcetemplates:
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
-      metadata:
-        generateName: push-to-github-run-
       spec:
         pipelineRef:
           name: push-to-github
+        workspaces:
+          - name: tekton-learning-workspace
         params:
           - name: url
             value: $(tt.params.gitrepositoryurl)
