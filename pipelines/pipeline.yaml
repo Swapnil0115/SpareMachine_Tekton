@@ -33,3 +33,6 @@ spec:
           value: https://github.com/Swapnil0115/SpareMachine_Tekton.git
         - name: branch
           value: main
+  workspaces:
+    - name: tekton-learning-workspace
+      mountPath: /workspace/output

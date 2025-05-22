@@ -4,6 +4,9 @@ metadata:
   name: run-tests
   namespace: tekton-pipelines
 spec:
+  workspaces:
+    - name: tekton-learning-workspace
+      description: The workspace where the cloned repository will be stored.
   steps:
     - name: test
       image: python:3.10

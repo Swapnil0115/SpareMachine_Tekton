@@ -4,6 +4,9 @@ metadata:
   name: pipeline-trigger-template
   namespace: tekton-pipelines
 spec:
+  workspaces:
+    - name: tekton-learning-workspace
+      description: The workspace where the cloned repository will be stored.
   params:
     - name: gitrevision
     - name: gitrepositoryurl

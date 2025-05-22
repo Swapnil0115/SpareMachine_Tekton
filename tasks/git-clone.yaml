@@ -4,6 +4,9 @@ metadata:
   name: git-clone
   namespace: tekton-pipelines
 spec:
+  workspaces:
+    - name: tekton-learning-workspace
+      description: The workspace where the cloned repository will be stored.
   params:
     - name: url
       type: string
@@ -14,12 +17,6 @@ spec:
       image: alpine/git
       script: |
         #!/bin/sh
-        echo "Directories in /:"
-        ls -l /
-        echo "Directories in /tekton:"
-        ls -l /tekton
-        echo "Directories in /workspace:"
-        ls -l /workspace
         git clone $(params.url) --branch $(params.revision) /workspace/output
       securityContext:
         runAsNonRoot: true

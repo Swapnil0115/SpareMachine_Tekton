@@ -4,6 +4,9 @@ metadata:
   name: git-push
   namespace: tekton-pipelines
 spec:
+  workspaces:
+    - name: tekton-learning-workspace
+      description: The workspace where the cloned repository will be stored.
   params:
     - name: repo-url
       type: string

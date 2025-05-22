@@ -4,6 +4,9 @@ metadata:
   name: github-listener
   namespace: tekton-pipelines
 spec:
+  workspaces:
+    - name: tekton-learning-workspace
+      description: The workspace where the cloned repository will be stored.
   serviceAccountName: pipeline
   triggers:
     - bindings:
