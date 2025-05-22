@@ -99,13 +99,14 @@ Output:
 to do:
 fix workspaces and environments for the nonrootuser.
 
-NonRootUser canno't cd to /workspace/output.
+NonRootUser cannot cd to /workspace/output.
 </br>
 Create a workspace _(Workspaces allow Tasks to declare parts of the filesystem that need to be provided at runtime by TaskRuns. A Taskrun can use existing volumes or create a new one and discard after run.)_
 Error: ``message: '"step-push" exited with code 128'``
 Run this to get more details on error: ``kubectl logs <pod_name> -c step-push -n tekton-pipelines``
 </br>
 Use Workspaces to fix this error
+
 ---
 
 <h2 align="center">GitHub branch protection rules Setup</h2>
