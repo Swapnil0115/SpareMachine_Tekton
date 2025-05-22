@@ -16,12 +16,7 @@ spec:
         workspaces:
           - name: tekton-learning-workspace
             volumeClaimTemplate:
-              spec:
-                accessModes:
-                  - ReadWriteOnce
-                resources:
-                  requests:
-                    storage: 1Gi
+              claimName: my-pvc
         params:
           - name: url
             value: $(tt.params.gitrepositoryurl)
