@@ -96,16 +96,13 @@ runAsUser: 1000
 Output:
 ![image](https://github.com/user-attachments/assets/07ab3cde-7f23-4961-8f93-2568b9942251)
 
-to do:
-fix workspaces and environments for the nonrootuser.
+#### Error 4: Workspace/Volume Issue
 
-NonRootUser cannot cd to /workspace/output.
-</br>
-Create a workspace _(Workspaces allow Tasks to declare parts of the filesystem that need to be provided at runtime by TaskRuns. A Taskrun can use existing volumes or create a new one and discard after run.)_
-Error: ``message: '"step-push" exited with code 128'``
-Run this to get more details on error: ``kubectl logs <pod_name> -c step-push -n tekton-pipelines``
-</br>
-Use Workspaces to fix this error
+Error: ``message: '"step-push" exited with code 128'`` </br>
+Run this to get more details on error: ``kubectl logs <pod_name> -c step-push -n tekton-pipelines``</br>
+
+1. NonRootUser cannot cd to /workspace/output.
+2. Create a workspace _(Workspaces allow Tasks to declare parts of the filesystem that need to be provided at runtime by TaskRuns. A Taskrun can use existing volumes or create a new one and discard after run.)_
 
 ---
 
