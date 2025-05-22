@@ -1,20 +1,18 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  generateName: push-to-github-run-
+  name: push-to-github-run
 spec:
   pipelineRef:
     name: push-to-github
-  podTemplate:
-    # These resources apply to all steps unless overridden in the Task
-    resources:
-      requests:
-        cpu: "300m"
-        memory: "1024Mi"
-      limits:
-        cpu: "1"
-        memory: "1Gi"
   workspaces:
     - name: tekton-learning-workspace
-      persistentVolumeClaim:
-        claimName: my-pvc
+      volumeClaimTemplate:
+        metadata:
+          name: pipeline-pvc
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 1Gi

@@ -14,6 +14,8 @@ spec:
           value: https://github.com/Swapnil0115/SpareMachine_Tekton.git
         - name: revision
           value: main
+      workspaces:
+        - name: tekton-learning-workspace
 
     - name: run-tests
       taskRef:
@@ -21,6 +23,8 @@ spec:
         kind: Task
       runAfter:
         - clone-repo
+      workspaces:
+        - name: tekton-learning-workspace
 
     - name: push-to-github
       taskRef:
@@ -33,6 +37,8 @@ spec:
           value: https://github.com/Swapnil0115/SpareMachine_Tekton.git
         - name: branch
           value: main
+      workspaces:
+        - name: tekton-learning-workspace
+
   workspaces:
     - name: tekton-learning-workspace
-      mountPath: /workspace/output

@@ -1,0 +1,9 @@
+kubectl apply -f pipelines/pipeline.yaml -n tekton-pipelines
+kubectl apply -f pipelines/pipeline-run.yaml -n tekton-pipelines
+kubectl apply -f service_accounts/rbac_pipeline.yaml -n tekton-pipelines
+kubectl apply -f tasks/git-clone.yaml -n tekton-pipelines
+kubectl apply -f tasks/git-push.yaml -n tekton-pipelines
+kubectl apply -f tasks/run-tests.yaml -n tekton-pipelines
+kubectl apply -f webhooks/trigger-bind.yaml -n tekton-pipelines
+kubectl apply -f webhooks/trigger-template.yaml -n tekton-pipelines
+kubectl apply -f webhooks/event-listener.yaml -n tekton-pipelines
