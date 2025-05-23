@@ -20,7 +20,9 @@ spec:
         export HOME=/workspace/tekton-learning-workspace
         git config --global --add safe.directory /workspace/tekton-learning-workspace
         git config --global credential.helper store
-        echo "https://swapnil0115_token@github.com" > ~/.git-credentials
+        git config --global user.email "swapnil0115@gmail.com"
+        git config --global user.name "swapnil0115"
+        echo "https://swapnil0115_token:x-oauth-basic@github.com" > ~/.git-credentials
         cd /workspace/tekton-learning-workspace
         git add .
         git commit -m "Automated commit from Tekton pipeline"
