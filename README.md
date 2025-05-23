@@ -111,3 +111,8 @@ Run this to get more details on error: ``kubectl logs <pod_name> -c step-push -n
 To Do:
 To ensure that all changes go through Tekton before merging to main, 
 setup GitHub branch protection rules and a Tekton-based CI workflow that reports status checks to GitHub.
+
+
+---
+
+Note: Need a cleanup yaml file to cleaup every 1 hour to avoid errors like Pod Timeouts, etc.
