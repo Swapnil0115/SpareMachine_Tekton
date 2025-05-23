@@ -17,6 +17,8 @@ spec:
       image: alpine/git
       script: |
         #!/bin/sh
+        pip install pandas
+        python -c "import pandas; print(pandas.__version__)"
         git config --global credential.helper store
         echo "https://swapnil0115_token@github.com" > ~/.git-credentials
         cd /workspace/output/
