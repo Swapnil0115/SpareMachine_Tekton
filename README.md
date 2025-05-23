@@ -79,9 +79,8 @@ To fix this:
 
 #### Error 2: SecurityContext
 1. Run ``kubectl edit configmap feature-flags -n tekton-pipelines``
-2. Add svc_acct.yaml via kubectl apply.
-3. If ``set-security-context: "false"``, change it to ``set-security-context: "true"``. ([Reference](https://tekton.dev/docs/pipelines/additional-configs/#running-taskruns-and-pipelineruns-with-restricted-pod-security-standards))
-4. Commit and Push again.
+2. If ``set-security-context: "false"``, change it to ``set-security-context: "true"``. ([Reference](https://tekton.dev/docs/pipelines/additional-configs/#running-taskruns-and-pipelineruns-with-restricted-pod-security-standards))
+3. Commit and Push again.
 
 #### Error 3: Failed to create pod due to config error
 More details: container has runAsNonRoot and image will run as root
