@@ -14,7 +14,7 @@ spec:
         generateName: push-to-github-$(uid)
         namespace: tekton-pipelines
       spec:
-        serviceAccountName: pipeline-triggers-admin
+        serviceAccountName: pipeline
         pipelineRef:
           name: push-to-github
         params:
