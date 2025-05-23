@@ -17,9 +17,8 @@ spec:
       image: alpine/git
       script: |
         #!/bin/sh
-        mkdir -p /workspace/output
-        cd /workspace/output
-        git clone $(params.url) --branch $(params.revision) /workspace/output
+        cd /workspace
+        git clone $(params.url) --branch $(params.revision) /workspace
       securityContext:
         runAsNonRoot: true
         runAsUser: 1000

@@ -12,7 +12,7 @@ spec:
       image: python:3.10
       script: |
         #!/bin/sh
-        cd /workspace/output
+        cd /workspace
         python -m unittest discover
       securityContext:
         runAsNonRoot: true
