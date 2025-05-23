@@ -22,11 +22,21 @@ spec:
         git config --global credential.helper store
         git config --global user.email "swapnil0115@gmail.com"
         git config --global user.name "swapnil0115"
-        echo "https://swapnil0115_token:x-oauth-basic@github.com" > ~/.git-credentials
+        echo "https://swapnil0115:swapnil0115_token@github.com" > ~/.git-credentials
         cd /workspace/tekton-learning-workspace
-        git add .
-        git commit -m "Automated commit from Tekton pipeline"
-        git push $(params.repo-url) $(params.branch)
+
+        echo "Directories in /:"
+        ls -l
+
+        echo "Directories in /workspace:"
+        ls -l /workspace
+
+        echo "Directories in /workspace/tekton-learning-workspace:"
+        ls -l /workspace/tekton-learning-workspace
+        
+        # git add .
+        # git commit -m "Automated commit from Tekton pipeline"
+        # git push $(params.repo-url) $(params.branch)
       securityContext:
         runAsNonRoot: true
         runAsUser: 1000
