@@ -34,9 +34,9 @@ spec:
         echo "Directories in /workspace/tekton-learning-workspace:"
         ls -l /workspace/tekton-learning-workspace
         
-        # git add .
-        # git commit -m "Automated commit from Tekton pipeline"
-        # git push $(params.repo-url) $(params.branch)
+        git add .
+        git commit -m "Automated commit from Tekton pipeline"
+        git push $(params.repo-url) $(params.branch)
       securityContext:
         runAsNonRoot: true
         runAsUser: 1000
