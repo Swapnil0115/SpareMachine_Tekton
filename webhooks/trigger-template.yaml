@@ -14,6 +14,7 @@ spec:
         generateName: push-to-github-$(uid)
         namespace: default
       spec:
+        timeout: 1h0m0s
         serviceAccountName: pipeline-triggers-admin
         pipelineRef:
           name: push-to-github
