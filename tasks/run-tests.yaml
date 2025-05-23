@@ -12,6 +12,9 @@ spec:
       image: python:3.10
       script: |
         #!/bin/sh
+        export HOME=/workspace/tekton-learning-workspace
+        pip install pandas
+        python -c "import pandas; print(pandas.__version__)"
         echo "Directories in /:"
         ls -l
         echo "Directories in /workspace:"
