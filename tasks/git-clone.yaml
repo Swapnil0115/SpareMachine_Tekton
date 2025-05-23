@@ -17,6 +17,10 @@ spec:
       image: alpine/git
       script: |
         #!/bin/sh
+        echo "Directories in /:"
+        ls -l /
+        echo "Directories in /workspace:"
+        ls -l /workspace
         cd /workspace
         git clone $(params.url) --branch $(params.revision) /workspace
       securityContext:
