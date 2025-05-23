@@ -17,13 +17,9 @@ spec:
         echo "Directories in /workspace:"
         ls -l /workspace
 
-        echo "Directories in /workspace/tekton-learning-workspace:"
         ls -l /workspace/tekton-learning-workspace
 
-        echo "Directories in /workspace/output:"
-        ls -l /workspace/output
-        
-        cd /workspace/tekton-learning-workspace/output
+        cd /workspace/tekton-learning-workspace
         python -m unittest discover
       securityContext:
         runAsNonRoot: true

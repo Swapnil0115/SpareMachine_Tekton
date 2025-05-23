@@ -23,11 +23,9 @@ spec:
         ls -l /home
         cd /workspace
         echo "cd done"
-        mkdir -p output
-        echo "mkdir done"
-        git clone $(params.url) --branch $(params.revision) /workspace/tekton-learning-workspace/output/
+        git clone $(params.url) --branch $(params.revision) /workspace/tekton-learning-workspace
 
-        ls -l /workspace/tekton-learning-workspace/output/
+        ls -l /workspace/tekton-learning-workspace
       securityContext:
         runAsNonRoot: true
         runAsUser: 1000
