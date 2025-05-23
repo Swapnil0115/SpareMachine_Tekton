@@ -12,7 +12,7 @@ spec:
       kind: PipelineRun
       metadata:
         generateName: push-to-github-$(uid)
-        namespace: default
+        namespace: tekton-pipelines
       spec:
         timeout: 1h0m0s
         serviceAccountName: pipeline-triggers-admin
