@@ -12,7 +12,18 @@ spec:
       image: python:3.10
       script: |
         #!/bin/sh
-        cd /workspace/output/
+        echo "Directories in /:"
+        ls -l
+        echo "Directories in /workspace:"
+        ls -l /workspace
+
+        echo "Directories in /workspace/tekton-learning-workspace:"
+        ls -l /workspace/tekton-learning-workspace
+
+        echo "Directories in /workspace/output:"
+        ls -l /workspace/output
+        
+        cd /workspace/tekton-learning-workspace/output
         python -m unittest discover
       securityContext:
         runAsNonRoot: true
