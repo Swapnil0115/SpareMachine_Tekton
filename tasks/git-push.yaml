@@ -17,6 +17,8 @@ spec:
       image: alpine/git
       script: |
         #!/bin/sh
+        export HOME=/workspace/tekton-learning-workspace
+        git config --global --add safe.directory /workspace/tekton-learning-workspace
         git config --global credential.helper store
         echo "https://swapnil0115_token@github.com" > ~/.git-credentials
         cd /workspace/tekton-learning-workspace
