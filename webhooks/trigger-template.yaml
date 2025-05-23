@@ -10,15 +10,25 @@ spec:
   resourcetemplates:
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
+      metadata:
+        generateName: pipelinerun-build-push-image-$(uid)
+        namespace: default
       spec:
+        serviceAccountName: pipeline-triggers-admin
         pipelineRef:
           name: push-to-github
-        workspaces:
-          - name: tekton-learning-workspace
-            volumeClaimTemplate:
-              claimName: my-pvc
         params:
           - name: url
             value: $(tt.params.gitrepositoryurl)
           - name: revision
             value: $(tt.params.gitrevision)
+        workspaces:
+          - name: tekton-learning-workspace
+            volumeClaimTemplate:
+            spec:
+              accessModes:
+              - ReadWriteOnce
+              resources:
+                requests:
+                  storage: 1Gi
+        
