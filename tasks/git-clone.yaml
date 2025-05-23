@@ -19,10 +19,13 @@ spec:
         #!/bin/sh
         echo "Directories in /:"
         ls -l /
-        echo "Directories in /workspace:"
-        ls -l /workspace
+        echo "Directories in /home:"
+        ls -l /home
         cd /workspace
-        git clone $(params.url) --branch $(params.revision) /workspace
+        echo "cd done"
+        mkdir -p output
+        echo "mkdir done"
+        git clone $(params.url) --branch $(params.revision) /workspace/output/
       securityContext:
         runAsNonRoot: true
         runAsUser: 1000
