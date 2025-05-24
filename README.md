@@ -113,7 +113,8 @@ Run this to get more details on error: ``kubectl logs <pod_name> -c step-push -n
 <h2 align="center">GitHub branch protection rules Setup</h2>
 
 To Do:
-To ensure that all changes go through Tekton before merging to main, 
+1. setup .gitignore to avoid github secret token passing into repo along with other unwanted files.
+2. To ensure that all changes go through Tekton before merging to main, 
 setup GitHub branch protection rules and a Tekton-based CI workflow that reports status checks to GitHub.
 
 
