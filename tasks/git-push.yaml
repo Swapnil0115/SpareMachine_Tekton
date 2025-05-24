@@ -15,6 +15,17 @@ spec:
   steps:
     - name: push
       image: alpine/git
+      env:
+        - name: GIT_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: github-secret
+              key: username
+        - name: GIT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: github-secret
+              key: password
       script: |
         #!/bin/sh
         export HOME=/workspace/tekton-learning-workspace
@@ -23,7 +34,7 @@ spec:
         git config --global user.email "swapnil0115@gmail.com"
         git config --global user.name "swapnil0115"
         echo "https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com" > ~/.git-credentials
-        
+
         cd /workspace/tekton-learning-workspace
 
         echo "Directories in /:"
