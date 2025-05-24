@@ -23,6 +23,9 @@ spec:
           - name: revision
             value: $(tt.params.gitrevision)
         workspaces:
+          - name: git-credentials
+            secret:
+              secretName: github-secret
           - name: tekton-learning-workspace
             volumeClaimTemplate:
               spec:

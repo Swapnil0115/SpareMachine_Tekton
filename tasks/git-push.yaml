@@ -26,13 +26,13 @@ spec:
         cd /workspace/tekton-learning-workspace
 
         echo "Directories in /:"
-        ls -l
+        ls -la
 
         echo "Directories in /workspace:"
-        ls -l /workspace
+        ls -la /workspace
 
         echo "Directories in /workspace/tekton-learning-workspace:"
-        ls -l /workspace/tekton-learning-workspace
+        ls -la /workspace/tekton-learning-workspace
         
         git add .
         git commit -m "Automated commit from Tekton pipeline"
