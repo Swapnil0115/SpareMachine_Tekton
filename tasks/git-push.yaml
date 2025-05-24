@@ -22,7 +22,8 @@ spec:
         git config --global credential.helper store
         git config --global user.email "swapnil0115@gmail.com"
         git config --global user.name "swapnil0115"
-        echo "https://swapnil0115:swapnil0115_token@github.com" > ~/.git-credentials
+        echo "https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com" > ~/.git-credentials
+        
         cd /workspace/tekton-learning-workspace
 
         echo "Directories in /:"
