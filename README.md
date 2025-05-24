@@ -62,6 +62,10 @@ _We will try to push the python files (one with correct syntax and one with inco
 4. Forward the github-eventlistener port to 8080 using ``kubectl port-forward svc/el-github-listener -n tekton-pipelines 8080:8080``
 5. Install NGROK, and make the port visible. ``ngrok http 8080``
 6. Create a webhook(application/json) using the ngrok link. _(json passed will be used to pull the "refs" and the "clone_url" defined in the trigger-bind.yaml file)_
+7. Generate the PAT github token, then apply the secrets and add it in triggertemplate using this command: ``kubectl create secret generic github-secret `
+  --from-literal=username="<git username>" `
+  --from-literal=password="github_pat_..." `
+  -n tekton-pipelines``
 
 To do: fix the event-listener pod. _(event-listener service is running, but pod is throwing crashloopbackoff error)_
 
