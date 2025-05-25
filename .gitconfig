@@ -1,6 +1,7 @@
 [safe]
 	directory = /workspace/tekton-learning-workspace
 	directory = /workspace/tekton-learning-workspace
+	directory = /workspace/tekton-learning-workspace
 [credential]
 	helper = store --file=/workspace/.git-credentials
 [user]
