@@ -23,6 +23,10 @@ spec:
         ls -l /home
         cd /workspace
         echo "cd done"
+
+        # Clear the target directory before cloning
+        rm -rf /workspace/tekton-learning-workspace/*
+
         git clone $(params.url) --branch $(params.revision) /workspace/tekton-learning-workspace
 
         ls -l /workspace/tekton-learning-workspace

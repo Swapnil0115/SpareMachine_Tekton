@@ -12,15 +12,12 @@ spec:
       image: python:3.10
       script: |
         #!/bin/sh
-        export HOME=/workspace/tekton-learning-workspace
+        mkdir -p /workspace/libraries
+        export HOME=/workspace/libraries
+
+        cd /workspace/libraries
         pip install pandas
         python -c "import pandas; print(pandas.__version__)"
-        echo "Directories in /:"
-        ls -l
-        echo "Directories in /workspace:"
-        ls -l /workspace
-
-        ls -l /workspace/tekton-learning-workspace
 
         cd /workspace/tekton-learning-workspace
         python -m unittest discover
