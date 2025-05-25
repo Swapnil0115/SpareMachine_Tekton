@@ -1,0 +1,7 @@
+[safe]
+	directory = /workspace/tekton-learning-workspace
+[credential]
+	helper = store --file=/workspace/.git-credentials
+[user]
+	email = swapnil0115@gmail.com
+	name = swapnil0115
