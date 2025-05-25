@@ -115,7 +115,7 @@ Run this to get more details on error: ``kubectl logs <pod_name> -c step-push -n
 To Do:
 1. setup .gitignore to avoid github secret token passing into repo along with other unwanted files/ change the HOME dir to avoid loading libraries, gitcredentials, etc.
 2. To ensure that all changes go through Tekton before merging to main, 
-setup GitHub branch protection rules and a Tekton-based CI workflow that reports status checks to GitHub.
+setup GitHub branch protection rules and a Tekton-based CI workflow that reports status checks to GitHub. [To_Read1](https://www.reddit.com/r/devops/comments/14qfuck/should_i_trigger_cicd_pipeline_on_merge_to_master/?force_seo=1)
 3. Avoid resetting of airflow pushes (for a particular user in feature branch) when other user pushes their code into their feature/main branch.
 
 
