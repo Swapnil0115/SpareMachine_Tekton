@@ -120,4 +120,4 @@ setup GitHub branch protection rules and a Tekton-based CI workflow that reports
 
 ---
 
-Note: Need a cleanup yaml file to cleaup every 1 hour to avoid errors like Pod Timeouts, etc.
+Note: Need a cleanup yaml file to cleaup kubernetes pod runs (eg: new pod gets created for every pipelinerun) every 1 hour to avoid errors like Pod Timeouts, etc.
