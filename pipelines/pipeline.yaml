@@ -29,7 +29,7 @@ spec:
         name: github-set-status
       params:
         - name: REPO_FULL_NAME
-          value: https://github.com/Swapnil0115/SpareMachine_Tekton.git
+          value: $(params.url)
         - name: SHA
           value: "$(params.sha)"
         - name: DESCRIPTION
@@ -45,9 +45,9 @@ spec:
         kind: Task
       params:
         - name: url
-          value: https://github.com/Swapnil0115/SpareMachine_Tekton.git
+          value: $(params.url)
         - name: revision
-          value: main
+          value: $(params.revision)
       runAfter:
         - set-status-start
       workspaces:
@@ -70,9 +70,9 @@ spec:
         - run-tests
       params:
         - name: repo-url
-          value: https://github.com/Swapnil0115/SpareMachine_Tekton.git
+          value: $(params.url)
         - name: branch
-          value: main
+          value: $(params.branch)
       workspaces:
         - name: tekton-learning-workspace
 
@@ -86,7 +86,7 @@ spec:
         name: github-set-status
       params:
         - name: REPO_FULL_NAME
-          value: https://github.com/Swapnil0115/SpareMachine_Tekton.git
+          value: $(params.url)
         - name: SHA
           value: "$(params.sha)"
         - name: DESCRIPTION
@@ -104,7 +104,7 @@ spec:
         name: github-set-status
       params:
         - name: REPO_FULL_NAME
-          value: https://github.com/Swapnil0115/SpareMachine_Tekton.git
+          value: $(params.url)
         - name: SHA
           value: "$(params.sha)"
         - name: DESCRIPTION
