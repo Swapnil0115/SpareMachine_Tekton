@@ -7,6 +7,10 @@ spec:
   params:
     - name: gitrevision
     - name: gitrepositoryurl
+    - name: sha
+    - name: action
+    - name: pull_request_id
+    - name: branch
   resourcetemplates:
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
