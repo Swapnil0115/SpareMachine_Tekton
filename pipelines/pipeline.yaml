@@ -4,6 +4,25 @@ metadata:
   name: push-to-github
   namespace: tekton-pipelines
 spec:
+  params:
+    - name: url
+      type: string
+      description: The URL of the Git repository to clone.
+    - name: revision
+      type: string
+      description: The branch or commit to checkout.
+    - name: sha
+      type: string
+      description: The SHA of the commit to set the status for.
+    - name: action
+      type: string
+      description: The action that triggered the pipeline (e.g., opened, synchronize).
+    - name: pull_request_id
+      type: string
+      description: The ID of the pull request.
+    - name: branch
+      type: string
+      description: The branch to push changes to.
   tasks:
     - name: set-status-start
       taskRef:
@@ -56,11 +75,11 @@ spec:
           value: main
       workspaces:
         - name: tekton-learning-workspace
-  
+
   finally:
     - name: set-status-success
       when:
-        - input: $(tasks.build.status)
+        - input: $(tasks.run-tests.status)
           operator: in
           values: ["Succeeded"]
       taskRef:
@@ -78,7 +97,7 @@ spec:
           value: https://62f2-2401-4900-1cb9-2330-68b3-f9a9-c812-42f8.ngrok-free.app
     - name: set-status-failure
       when:
-        - input: $(tasks.build.status)
+        - input: $(tasks.run-tests.status)
           operator: in
           values: ["Failed"]
       taskRef:
