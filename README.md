@@ -125,6 +125,7 @@ Referred -> [Configuring_github](https://medium.com/@ambeshgaunker123/automating
 2. [Almost done]To ensure that all changes go through Tekton before merging to main, 
 setup GitHub branch protection rules and a Tekton-based CI workflow that reports status checks to GitHub. [To_Read1](https://www.reddit.com/r/devops/comments/14qfuck/should_i_trigger_cicd_pipeline_on_merge_to_master/?force_seo=1)
 3. Avoid resetting of airflow pushes (for a particular user in feature branch) when other user pushes their code into their feature/main branch.
+4. Document properly :/
 
 
 ---
