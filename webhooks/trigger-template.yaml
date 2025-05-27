@@ -22,6 +22,14 @@ spec:
             value: $(tt.params.gitrepositoryurl)
           - name: revision
             value: $(tt.params.gitrevision)
+          - name: sha
+            value: $(tt.params.sha)
+          - name: action
+            value: "$(tt.params.action)"
+          - name: pull_request_id
+            value: "$(tt.params.pull_request_id)"
+          - name: branch
+            value: "$(tt.params.branch)"
         workspaces:
           - name: git-credentials
             secret:
