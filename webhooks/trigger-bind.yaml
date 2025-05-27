@@ -15,3 +15,5 @@ spec:
       value: "$(body.pull_request.head.ref)"
     - name: sha
       value: "$(body.pull_request.head.sha)"
+    - name: action
+      value: "$(body.action)"
