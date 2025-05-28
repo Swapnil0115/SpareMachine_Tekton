@@ -11,6 +11,9 @@ metadata:
     tekton.dev/displayName: "set github status"
     tekton.dev/platforms: "linux/amd64,linux/s390x,linux/ppc64le"
 spec:
+  workspaces:
+    - name: tekton-learning-workspace
+      description: The workspace where the cloned repository will be stored.
   description: >-
     This task will set the status of the CI job to the specified value along
     witha link to the specified target URL where developers can follow the
@@ -87,11 +90,6 @@ spec:
       The type of authentication to use. You could use the less secure "Basic" for example
     type: string
     default: Bearer
-
-  volumes:
-    - name: githubtoken
-      secret:
-        secretName: $(params.GITHUB_TOKEN_SECRET_NAME)
 
   steps:
     - name: set-status
