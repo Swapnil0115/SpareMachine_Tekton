@@ -38,6 +38,8 @@ spec:
           value: pending
         - name: TARGET_URL
           value: https://ebc5-2401-4900-1cb9-2330-299b-8aa9-4a71-5f64.ngrok-free.app
+      workspaces:
+        - name: tekton-learning-workspace
 
     - name: clone-repo
       taskRef:
@@ -95,6 +97,9 @@ spec:
           value: success
         - name: TARGET_URL
           value: https://ebc5-2401-4900-1cb9-2330-299b-8aa9-4a71-5f64.ngrok-free.app
+      workspaces:
+        - name: tekton-learning-workspace
+    
     - name: set-status-failure
       when:
         - input: $(tasks.run-tests.status)
@@ -113,6 +118,8 @@ spec:
           value: failure
         - name: TARGET_URL
           value: https://ebc5-2401-4900-1cb9-2330-299b-8aa9-4a71-5f64.ngrok-free.app
-
+      workspaces:
+        - name: tekton-learning-workspace
+  
   workspaces:
     - name: tekton-learning-workspace
