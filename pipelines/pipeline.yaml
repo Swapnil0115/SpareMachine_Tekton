@@ -20,9 +20,9 @@ spec:
     - name: pull_request_id
       type: string
       description: The ID of the pull request.
-    - name: branch
-      type: string
-      description: The branch to push changes to.
+    # - name: branch
+    #   type: string
+    #   description: The branch to push changes to.
     - name: REPO_FULL_NAME
       type: string
       description: The full name of the GitHub repository (e.g., user/repo).
@@ -75,19 +75,19 @@ spec:
       workspaces:
         - name: tekton-learning-workspace
 
-    - name: push-to-github
-      taskRef:
-        name: git-push
-        kind: Task
-      runAfter:
-        - run-tests
-      params:
-        - name: repo-url
-          value: $(params.url)
-        - name: branch
-          value: $(params.branch)
-      workspaces:
-        - name: tekton-learning-workspace
+    # - name: push-to-github
+    #   taskRef:
+    #     name: git-push
+    #     kind: Task
+    #   runAfter:
+    #     - run-tests
+    #   params:
+    #     - name: repo-url
+    #       value: $(params.url)
+    #     - name: branch
+    #       value: $(params.branch)
+    #   workspaces:
+    #     - name: tekton-learning-workspace
 
   finally:
     - name: set-status-success
