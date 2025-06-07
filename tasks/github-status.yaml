@@ -67,7 +67,7 @@ spec:
         import http.client
         import os
 
-        token_path = "/etc/github-set-status/" + os.environ.get("GITHUB_TOKEN_SECRET_KEY", "token")
+        token_path = "/github-set-status/" + os.environ.get("GITHUB_TOKEN_SECRET_KEY", "token")
         with open(token_path, "r") as f:
             github_token = f.read().strip()
 
