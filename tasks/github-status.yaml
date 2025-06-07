@@ -103,23 +103,23 @@ spec:
 
       env:
         - name: GITHUB_HOST_URL
-          value: $(tt.params.url)
+          value: $(params.GITHUB_HOST_URL)
         - name: API_PATH_PREFIX
-          value: $(tt.params.API_PATH_PREFIX)
+          value: $(params.API_PATH_PREFIX)
         - name: REPO_FULL_NAME
-          value: $(tt.params.REPO_FULL_NAME)
+          value: $(params.REPO_FULL_NAME)
         - name: SHA
-          value: $(tt.params.sha)
+          value: $(params.SHA)
         - name: TARGET_URL
-          value: $(tt.params.TARGET_URL)
+          value: $(params.TARGET_URL)
         - name: DESCRIPTION
-          value: $(tt.params.DESCRIPTION)
+          value: $(params.DESCRIPTION)
         - name: CONTEXT
-          value: $(tt.params.CONTEXT)
+          value: $(params.CONTEXT)
         - name: STATE
-          value: $(tt.params.STATE)
+          value: $(params.STATE)
         - name: AUTH_TYPE
-          value: $(tt.params.AUTH_TYPE)
+          value: $(params.AUTH_TYPE)
         - name: GITHUB_TOKEN_SECRET_KEY
           value: password
       volumeMounts:
