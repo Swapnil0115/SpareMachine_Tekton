@@ -13,7 +13,7 @@ spec:
       description: The branch or commit to checkout.
     - name: sha
       type: string
-      description: The SHA of the commit to set the status for.
+      description: The sha of the commit to set the status for.
     - name: action
       type: string
       description: The action that triggered the pipeline (e.g., opened, synchronize).
