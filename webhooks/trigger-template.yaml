@@ -9,6 +9,7 @@ spec:
     - name: gitrepositoryurl
     - name: sha
     - name: action
+    - name: GITHUB_HOST_URL
     - name: pull_request_id
     - name: branch
     - name: API_PATH_PREFIX
@@ -43,6 +44,8 @@ spec:
             value: "$(tt.params.branch)"
           - name: REPO_FULL_NAME
             value: $(tt.params.REPO_FULL_NAME)
+          - name: GITHUB_HOST_URL
+            value: $(tt.params.GITHUB_HOST_URL)
         workspaces:
           - name: git-credentials
             secret:

@@ -26,6 +26,10 @@ spec:
     - name: REPO_FULL_NAME
       type: string
       description: The full name of the GitHub repository (e.g., user/repo).
+    - name: GITHUB_HOST_URL
+      type: string
+      description: The GitHub host URL (default is api.github.com).
+      default: api.github.com
   tasks:
     - name: set-status-start
       taskRef:
@@ -45,8 +49,8 @@ spec:
           value: ""
         - name: GITHUB_TOKEN_SECRET_KEY
           value: password
-        - name: url
-          value: $(params.url)
+        - name: GITHUB_HOST_URL
+          value: $(params.GITHUB_HOST_URL)
   
     - name: clone-repo
       taskRef:
@@ -108,8 +112,8 @@ spec:
           value: password
         - name: API_PATH_PREFIX
           value: ""
-        - name: url
-          value: $(params.url)
+        - name: GITHUB_HOST_URL
+          value: $(params.GITHUB_HOST_URL)
     - name: set-status-failure
       when:
         - input: $(tasks.run-tests.status)
@@ -132,8 +136,8 @@ spec:
           value: password
         - name: API_PATH_PREFIX
           value: ""
-        - name: url
-          value: $(params.url)
+        - name: GITHUB_HOST_URL
+          value: $(params.GITHUB_HOST_URL)
 
   workspaces:
     - name: tekton-learning-workspace
