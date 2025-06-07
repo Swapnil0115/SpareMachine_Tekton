@@ -182,4 +182,37 @@ The following steps can be added to complete the **CD** pipeline and make it pro
 
 ---
 
+<h2 align="center"> ## 🛠️ To-Do: Tekton Push to `main` on Successful Tests </h2>
+
+### 🧪 Goal:
+Automate promotion of tested code to the `main` branch, **only if CI tasks succeed**, while handling open Pull Requests appropriately.
+
+### ✅ Steps:
+1. Add a `finally` block or gated step in your Tekton pipeline:
+   - If tests pass, run a `git push` to `main` using a bot or service account.
+   - Else, skip this step.
+
+2. Modify the pipeline to:
+   - Checkout the current feature branch
+   - Rebase or cherry-pick tested commits onto `main`
+   - Push `main` via Tekton’s Git step
+
+3. Handle open PRs:
+   - Option 1: **Auto-close the PR** using GitHub API (via Tekton Task)
+   - Option 2: **Label PR as Merged via CI**, leave for manual cleanup
+   - Option 3: Create protected PRs from `tekton-ci/*` branches and merge only if Tekton CI passes
+
+4. Add PR cleanup automation:
+   - Use GitHub Actions or Tekton to:
+     - Comment on the PR
+     - Add a label like `auto-merged-by-Tekton`
+     - Close the PR if `main` already includes the changes
+
+### 🔒 Notes:
+- Protect the `main` branch to allow **only CI-based commits**
+- Ensure GitHub token used has `repo` and `pull_request` scopes
+- Avoid push loops by using a dedicated bot branch or CI-only tag
+
+---
+
 Note: Need a cleanup yaml file to cleaup kubernetes pod runs (eg: new pod gets created for every pipelinerun) every 1 hour to avoid errors like Pod Timeouts, etc.
