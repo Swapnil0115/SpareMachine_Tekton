@@ -145,6 +145,40 @@ setup GitHub branch protection rules and a Tekton-based CI workflow that reports
 3. Avoid resetting of airflow pushes (for a particular user in feature branch) when other user pushes their code into their feature/main branch.
 4. Document properly :/
 
+---
+
+<h2 align="center"> Continuous Delivery (CD) Enhancements (To-Do) </h2>
+
+The following steps can be added to complete the **CD** pipeline and make it production-grade:
+
+1. **Artifact Delivery**
+   - Push validated code or datasets to:
+     - GitHub (different branch or release)
+     - Google Cloud Storage (GCS)
+     - DVC remote
+     - Artifact Registry
+
+2. **Automated Deployment**
+   - Add deployment tasks such as:
+     - `kubectl apply` for updated Kubernetes manifests
+     - Uploading Airflow DAGs to Composer
+     - Deploying Cloud Functions or Cloud Run services via `gcloud deploy`
+
+3. **Versioning & Release Management**
+   - Tag commits on success (`git tag`)
+   - Create GitHub Releases programmatically
+
+4. **Notifications & Logging**
+   - Send Slack/email/webhook alerts on pipeline success/failure
+   - Log pipeline run summaries to:
+     - Stackdriver / Cloud Logging
+     - BigQuery or log monitoring systems
+
+5. **Post-Deployment Testing**
+   - Add smoke tests or health checks for deployed services
+   - Use `curl`, `pytest`, or `postman` tasks
+
+🛠️ These enhancements ensure full automation from code validation to delivery, aligning with enterprise-grade CI/CD practices.
 
 ---
 
