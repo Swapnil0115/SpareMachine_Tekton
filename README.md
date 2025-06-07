@@ -182,7 +182,7 @@ The following steps can be added to complete the **CD** pipeline and make it pro
 
 ---
 
-<h2 align="center"> ## 🛠️ To-Do: Tekton Push to `main` on Successful Tests </h2>
+<h2 align="center"> 🛠️ To-Do: Tekton Push to `main` on Successful Tests </h2>
 
 ### 🧪 Goal:
 Automate promotion of tested code to the `main` branch, **only if CI tasks succeed**, while handling open Pull Requests appropriately.
