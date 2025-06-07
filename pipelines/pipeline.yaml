@@ -37,7 +37,7 @@ spec:
         - name: STATE
           value: pending
         - name: TARGET_URL
-          value: https://ebc5-2401-4900-1cb9-2330-299b-8aa9-4a71-5f64.ngrok-free.app
+          value: https://9568-2401-4900-1cb9-3984-9912-5a47-467e-9b73.ngrok-free.app
   
     - name: clone-repo
       taskRef:
@@ -94,7 +94,7 @@ spec:
         - name: STATE
           value: success
         - name: TARGET_URL
-          value: https://ebc5-2401-4900-1cb9-2330-299b-8aa9-4a71-5f64.ngrok-free.app
+          value: https://9568-2401-4900-1cb9-3984-9912-5a47-467e-9b73.ngrok-free.app
     - name: set-status-failure
       when:
         - input: $(tasks.run-tests.status)
@@ -112,7 +112,7 @@ spec:
         - name: STATE
           value: failure
         - name: TARGET_URL
-          value: https://ebc5-2401-4900-1cb9-2330-299b-8aa9-4a71-5f64.ngrok-free.app
+          value: https://9568-2401-4900-1cb9-3984-9912-5a47-467e-9b73.ngrok-free.app
 
   workspaces:
     - name: tekton-learning-workspace
