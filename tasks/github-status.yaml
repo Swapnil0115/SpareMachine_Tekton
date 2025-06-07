@@ -14,7 +14,7 @@ spec:
     This task sets the status of a GitHub commit (e.g., for a PR) using the GitHub Status API.
     It is useful for marking CI/CD status on PRs and commits.
   params:
-    - name: GITHUB_HOST_URL
+    - name: url
       description: |
         The GitHub host, adjust this if you run a GitHub enterprise.
       type: string
@@ -34,8 +34,8 @@ spec:
       description: The key in the secret containing the GitHub token
       type: string
       default: token
-    - name: SHA
-      description: Commit SHA to set the status for
+    - name: sha
+      description: Commit sha to set the status for
       type: string
     - name: TARGET_URL
       description: The target URL to associate with this status (e.g., your CI run)
@@ -71,7 +71,7 @@ spec:
         with open(token_path, "r") as f:
             github_token = f.read().strip()
 
-        status_url = os.environ.get("API_PATH_PREFIX", "") + "/repos/" + os.environ["REPO_FULL_NAME"] + "/statuses/" + os.environ["SHA"]
+        status_url = os.environ.get("API_PATH_PREFIX", "") + "/repos/" + os.environ["REPO_FULL_NAME"] + "/statuses/" + os.environ["sha"]
         data = {
             "state": os.environ["STATE"],
             "target_url": os.environ["TARGET_URL"],
@@ -83,7 +83,7 @@ spec:
 
         authHeader = os.environ.get("AUTH_TYPE", "Bearer") + " " + github_token
 
-        conn = http.client.HTTPSConnection(os.environ.get("GITHUB_HOST_URL", "api.github.com"))
+        conn = http.client.HTTPSConnection(os.environ.get("url", "api.github.com"))
         conn.request(
             "POST",
             status_url,
@@ -99,17 +99,17 @@ spec:
             print(resp.read())
             sys.exit(1)
         else:
-            print(f"GitHub status '{os.environ['STATE']}' has been set on {os.environ['REPO_FULL_NAME']}#{os.environ['SHA']}")
+            print(f"GitHub status '{os.environ['STATE']}' has been set on {os.environ['REPO_FULL_NAME']}#{os.environ['sha']}")
 
       env:
-        - name: GITHUB_HOST_URL
-          value: $(params.GITHUB_HOST_URL)
+        - name: url
+          value: $(params.url)
         - name: API_PATH_PREFIX
           value: $(params.API_PATH_PREFIX)
         - name: REPO_FULL_NAME
           value: $(params.REPO_FULL_NAME)
-        - name: SHA
-          value: $(params.SHA)
+        - name: sha
+          value: $(params.sha)
         - name: TARGET_URL
           value: $(params.TARGET_URL)
         - name: DESCRIPTION
