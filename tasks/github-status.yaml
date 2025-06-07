@@ -105,7 +105,7 @@ spec:
         - name: url
           value: $(params.url)
         - name: API_PATH_PREFIX
-          value: $(params.API_PATH_PREFIX)
+          value: ""
         - name: REPO_FULL_NAME
           value: $(params.REPO_FULL_NAME)
         - name: sha
