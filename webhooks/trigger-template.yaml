@@ -41,14 +41,10 @@ spec:
             value: "$(tt.params.pull_request_id)"
           - name: branch
             value: "$(tt.params.branch)"
-          - name: GITHUB_HOST_URL
-            value: $(tt.params.gitrepositoryurl)
           - name: API_PATH_PREFIX
             value: $(tt.params.API_PATH_PREFIX)
           - name: REPO_FULL_NAME
             value: $(tt.params.REPO_FULL_NAME)
-          - name: SHA
-            value: $(tt.params.sha)
           - name: TARGET_URL
             value: $(tt.params.TARGET_URL)
           - name: DESCRIPTION
