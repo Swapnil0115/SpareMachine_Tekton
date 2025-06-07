@@ -20,4 +20,5 @@ spec:
     - name: REPO_FULL_NAME
       value: $(body.repository.full_name)
     - name: GITHUB_HOST_URL
-      value: "$(body.head.url)"
+      value: "api.github.com"
+#test
