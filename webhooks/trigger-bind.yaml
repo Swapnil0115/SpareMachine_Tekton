@@ -9,13 +9,13 @@ spec:
       value: "$(body.pull_request.head.ref)"
     - name: gitrepositoryurl
       value: "$(body.repository.clone_url)"
-    - name: sha
+    - name: SHA_code
       value: "$(body.pull_request.head.sha)"
-    - name: action
+    - name: gitaction
       value: "$(body.action)"
-    - name: pull_request_id
+    - name: GIT_pull_request_id
       value: "$(body.pull_request.id)"
-    - name: branch
+    - name: GIT_branch
       value: "$(body.pull_request.head.ref)"
-    - name: REPO_FULL_NAME
+    - name: GIT_REPO_NAME
       value: $(body.repository.full_name)

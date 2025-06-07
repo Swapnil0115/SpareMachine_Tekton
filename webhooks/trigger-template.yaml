@@ -7,12 +7,12 @@ spec:
   params:
     - name: gitrevision
     - name: gitrepositoryurl
-    - name: sha
-    - name: action
-    - name: pull_request_id
-    - name: branch
+    - name: SHA_code
+    - name: gitaction
+    - name: GIT_pull_request_id
+    - name: GIT_branch
     - name: API_PATH_PREFIX
-    - name: REPO_FULL_NAME
+    - name: GIT_REPO_NAME
     - name: TARGET_URL
     - name: DESCRIPTION
     - name: CONTEXT
@@ -34,15 +34,15 @@ spec:
           - name: revision
             value: $(tt.params.gitrevision)
           - name: sha
-            value: $(tt.params.sha)
+            value: $(tt.params.SHA_code)
           - name: action
-            value: "$(tt.params.action)"
+            value: "$(tt.params.gitaction)"
           - name: pull_request_id
-            value: "$(tt.params.pull_request_id)"
+            value: "$(tt.params.GIT_pull_request_id)"
           - name: branch
-            value: "$(tt.params.branch)"
+            value: "$(tt.params.GIT_branch)"
           - name: REPO_FULL_NAME
-            value: $(tt.params.REPO_FULL_NAME)
+            value: $(tt.params.GIT_REPO_NAME)
         workspaces:
           - name: git-credentials
             secret:
