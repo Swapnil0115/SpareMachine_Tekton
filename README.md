@@ -40,14 +40,13 @@ _We will try to push the python files (one with correct syntax and one with inco
 2. Install Tekton CRDs :</br>
    ``kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml``
 3. Install Tekton Interceptors using ``kubectl apply --filename https://storage.googleapis.com/tekton-releases/triggers/latest/interceptors.yaml``
-4. 
-5. Verify using -> ``kubectl get pods --namespace tekton-pipelines``.
+4. Verify using -> ``kubectl get pods --namespace tekton-pipelines``.
    You should see pods with names like tekton-pipelines-controller and tekton-pipelines-webhook in the Running state.
-6. Download tekton (https://github.com/tektoncd/cli/releases) and add into PATH under environment variables.
-7. Verify in cmd using ``tkn version``
-8. Use the command below to enable dashboard: </br>
+5. Download tekton (https://github.com/tektoncd/cli/releases) and add into PATH under environment variables.
+6. Verify in cmd using ``tkn version``
+7. Use the command below to enable dashboard: </br>
    ``kubectl apply --filename https://storage.googleapis.com/tekton-releases/dashboard/latest/release.yaml``
-9. Forward the dashboard service to any port to access from localhost using this command -> ``kubectl port-forward svc/tekton-dashboard -n tekton-pipelines 9097:9097``
+8. Forward the dashboard service to any port to access from localhost using this command -> ``kubectl port-forward svc/tekton-dashboard -n tekton-pipelines 9097:9097``
 
 ---
 
