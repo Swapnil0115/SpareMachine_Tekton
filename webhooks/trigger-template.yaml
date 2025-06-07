@@ -41,20 +41,8 @@ spec:
             value: "$(tt.params.pull_request_id)"
           - name: branch
             value: "$(tt.params.branch)"
-          - name: API_PATH_PREFIX
-            value: $(tt.params.API_PATH_PREFIX)
           - name: REPO_FULL_NAME
             value: $(tt.params.REPO_FULL_NAME)
-          - name: TARGET_URL
-            value: $(tt.params.TARGET_URL)
-          - name: DESCRIPTION
-            value: $(tt.params.DESCRIPTION)
-          - name: CONTEXT
-            value: $(tt.params.CONTEXT)
-          - name: STATE
-            value: $(tt.params.STATE)
-          - name: AUTH_TYPE
-            value: $(tt.params.AUTH_TYPE)
         workspaces:
           - name: git-credentials
             secret:

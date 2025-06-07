@@ -19,15 +19,3 @@ spec:
       value: "$(body.pull_request.head.ref)"
     - name: REPO_FULL_NAME
       value: $(body.repository.full_name)
-    - name: TARGET_URL
-      value: https://github.com/$(body.repository.full_name)/commit/$(body.pull_request.head.sha)
-    - name: DESCRIPTION
-      value: "Build has started"
-    - name: CONTEXT
-      value: "continuous-integration/tekton"
-    - name: STATE
-      value: "pending"
-    - name: AUTH_TYPE
-      value: "Bearer"
-    - name: API_PATH_PREFIX
-      value: ""

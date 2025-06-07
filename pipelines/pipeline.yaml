@@ -23,14 +23,17 @@ spec:
     - name: branch
       type: string
       description: The branch to push changes to.
+    - name: REPO_FULL_NAME
+      type: string
+      description: The full name of the GitHub repository (e.g., user/repo).
   tasks:
     - name: set-status-start
       taskRef:
         name: github-set-status
       params:
         - name: REPO_FULL_NAME
-          value: $(params.url)
-        - name: SHA
+          value: $(params.REPO_FULL_NAME)
+        - name: sha
           value: "$(params.sha)"
         - name: DESCRIPTION
           value: "Build has started"
@@ -38,6 +41,12 @@ spec:
           value: pending
         - name: TARGET_URL
           value: https://9568-2401-4900-1cb9-3984-9912-5a47-467e-9b73.ngrok-free.app
+        - name: API_PATH_PREFIX
+          value: ""
+        - name: GITHUB_TOKEN_SECRET_KEY
+          value: password
+        - name: url
+          value: $(params.url)
   
     - name: clone-repo
       taskRef:
@@ -86,8 +95,8 @@ spec:
         name: github-set-status
       params:
         - name: REPO_FULL_NAME
-          value: $(params.url)
-        - name: SHA
+          value: $(params.REPO_FULL_NAME)
+        - name: sha
           value: "$(params.sha)"
         - name: DESCRIPTION
           value: "Build has succeeded"
@@ -95,6 +104,12 @@ spec:
           value: success
         - name: TARGET_URL
           value: https://9568-2401-4900-1cb9-3984-9912-5a47-467e-9b73.ngrok-free.app
+        - name: GITHUB_TOKEN_SECRET_KEY
+          value: password
+        - name: API_PATH_PREFIX
+          value: ""
+        - name: url
+          value: $(params.url)
     - name: set-status-failure
       when:
         - input: $(tasks.run-tests.status)
@@ -104,8 +119,8 @@ spec:
         name: github-set-status
       params:
         - name: REPO_FULL_NAME
-          value: $(params.url)
-        - name: SHA
+          value: $(params.REPO_FULL_NAME)
+        - name: sha
           value: "$(params.sha)"
         - name: DESCRIPTION
           value: "Build has failed"
@@ -113,6 +128,12 @@ spec:
           value: failure
         - name: TARGET_URL
           value: https://9568-2401-4900-1cb9-3984-9912-5a47-467e-9b73.ngrok-free.app
+        - name: GITHUB_TOKEN_SECRET_KEY
+          value: password
+        - name: API_PATH_PREFIX
+          value: ""
+        - name: url
+          value: $(params.url)
 
   workspaces:
     - name: tekton-learning-workspace
