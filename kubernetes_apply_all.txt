@@ -7,3 +7,7 @@ kubectl apply -f webhooks/trigger-bind.yaml -n tekton-pipelines
 kubectl apply -f webhooks/trigger-template.yaml -n tekton-pipelines
 kubectl apply -f webhooks/event-listener.yaml -n tekton-pipelines
 kubectl apply -f service_accounts/svc_acct.yaml -n tekton-pipelines
+kubectl apply -f service_accounts/tekton-triggers-clusterrole.yaml
+kubectl apply -f service_accounts/tekton-triggers-clusterrolebinding.yaml
+
+kubectl create secret generic github-secret --from-literal=username="swapnil0115" --from-literal=password="PAT_CODE" -n tekton-pipelines
