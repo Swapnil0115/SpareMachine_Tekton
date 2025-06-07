@@ -20,7 +20,7 @@ spec:
     - name: REPO_FULL_NAME
       value: $(body.repository.full_name)
     - name: TARGET_URL
-      value: https://github.com/$(body.repository.full_name)/commit/$(body.after)
+      value: https://github.com/$(body.repository.full_name)/commit/$(body.pull_request.head.sha)
     - name: DESCRIPTION
       value: "Build has started"
     - name: CONTEXT
