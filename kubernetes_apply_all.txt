@@ -7,3 +7,4 @@ kubectl apply -f webhooks/trigger-bind.yaml -n tekton-pipelines
 kubectl apply -f webhooks/trigger-template.yaml -n tekton-pipelines
 kubectl apply -f webhooks/event-listener.yaml -n tekton-pipelines
 kubectl apply -f service_accounts/svc_acct.yaml -n tekton-pipelines
+
