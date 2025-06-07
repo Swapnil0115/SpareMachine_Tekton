@@ -67,7 +67,7 @@ spec:
         import http.client
         import os
 
-        token_path = "/github-set-status/" + os.environ.get("GITHUB_TOKEN_SECRET_KEY", "token")
+        token_path = "/etc/github-set-status/" + os.environ.get("GITHUB_TOKEN_SECRET_KEY", "password")
         with open(token_path, "r") as f:
             github_token = f.read().strip()
 
@@ -121,7 +121,7 @@ spec:
         - name: AUTH_TYPE
           value: $(params.AUTH_TYPE)
         - name: GITHUB_TOKEN_SECRET_KEY
-          value: $(params.GITHUB_TOKEN_SECRET_KEY)
+          value: password
       volumeMounts:
         - name: githubtoken
           mountPath: /etc/github-set-status
