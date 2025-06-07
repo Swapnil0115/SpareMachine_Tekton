@@ -19,3 +19,5 @@ spec:
       value: "$(body.pull_request.head.ref)"
     - name: REPO_FULL_NAME
       value: $(body.repository.full_name)
+    - name: GITHUB_HOST_URL
+      value: "$(body.head.url)"

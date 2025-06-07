@@ -14,7 +14,7 @@ spec:
     This task sets the status of a GitHub commit (e.g., for a PR) using the GitHub Status API.
     It is useful for marking CI/CD status on PRs and commits.
   params:
-    - name: url
+    - name: GITHUB_HOST_URL
       description: |
         The GitHub host, adjust this if you run a GitHub enterprise.
       type: string
@@ -83,7 +83,7 @@ spec:
 
         authHeader = os.environ.get("AUTH_TYPE", "Bearer") + " " + github_token
 
-        conn = http.client.HTTPSConnection(os.environ.get("url", "api.github.com"))
+        conn = http.client.HTTPSConnection(os.environ.get("GITHUB_HOST_URL", "api.github.com"))
         conn.request(
             "POST",
             status_url,
@@ -102,8 +102,8 @@ spec:
             print(f"GitHub status '{os.environ['STATE']}' has been set on {os.environ['REPO_FULL_NAME']}#{os.environ['sha']}")
 
       env:
-        - name: url
-          value: $(params.url)
+        - name: GITHUB_HOST_URL
+          value: $(params.GITHUB_HOST_URL)
         - name: API_PATH_PREFIX
           value: ""
         - name: REPO_FULL_NAME
