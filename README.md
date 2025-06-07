@@ -128,6 +128,15 @@ May 29, 1:46:48 AMFileNotFoundError: [Errno 2] No such file or directory: '/etc/
 
    ---
 
+<h2 align="center"> Final Output: </h2>
+
+1) git-status.yaml gets the realtime status from tekton via the webhook.
+   ![image](https://github.com/user-attachments/assets/6979adc7-0ed4-4455-a760-1d18db43d836)
+2) Set-status task sends the status and the finally block sends the final success/failure status.
+   ![image](https://github.com/user-attachments/assets/ebfdd3f5-ce66-47a4-a181-b619878da5ef)
+
+---
+
 <h2 align="center">To Do </h2>
 
 1. setup .gitignore to avoid github secret token passing into repo along with other unwanted files/ change the HOME dir to avoid loading libraries, gitcredentials, etc.
