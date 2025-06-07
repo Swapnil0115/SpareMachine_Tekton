@@ -11,6 +11,13 @@ spec:
     - name: action
     - name: pull_request_id
     - name: branch
+    - name: API_PATH_PREFIX
+    - name: REPO_FULL_NAME
+    - name: TARGET_URL
+    - name: DESCRIPTION
+    - name: CONTEXT
+    - name: STATE
+    - name: AUTH_TYPE
   resourcetemplates:
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
@@ -34,6 +41,20 @@ spec:
             value: "$(tt.params.pull_request_id)"
           - name: branch
             value: "$(tt.params.branch)"
+          - name: REPO_FULL_NAME
+            value: $(body.repository.full_name)
+          - name: TARGET_URL
+            value: https://github.com/$(body.repository.full_name)/commit/$(body.after)
+          - name: DESCRIPTION
+            value: "Build has started"
+          - name: CONTEXT
+            value: "continuous-integration/tekton"
+          - name: STATE
+            value: "pending"
+          - name: AUTH_TYPE
+            value: "Bearer"
+          - name: API_PATH_PREFIX
+            value: ""
         workspaces:
           - name: git-credentials
             secret:
