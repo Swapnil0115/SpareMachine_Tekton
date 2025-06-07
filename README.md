@@ -37,9 +37,9 @@ _We will try to push the python files (one with correct syntax and one with inco
 ### Setting up Tekton
 
 1. Install Docker and enable Kubernetes in the Spare Machine.
-2. Install Tekton Interceptors using ``kubectl apply --filename https://storage.googleapis.com/tekton-releases/triggers/latest/interceptors.yaml``
-3. Install Tekton CRDs :</br>
+2. Install Tekton CRDs :</br>
    ``kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml``
+3. Install Tekton Interceptors using ``kubectl apply --filename https://storage.googleapis.com/tekton-releases/triggers/latest/interceptors.yaml``
 4. Verify using -> ``kubectl get pods --namespace tekton-pipelines``.
    You should see pods with names like tekton-pipelines-controller and tekton-pipelines-webhook in the Running state.
 5. Download tekton (https://github.com/tektoncd/cli/releases) and add into PATH under environment variables.
@@ -116,6 +116,15 @@ Referred -> [Configuring_github](https://medium.com/@ambeshgaunker123/automating
 1) Added params and its values in all files in webhooks folder and in pipeline.yaml under pipelines folder.
 2) Applied github-set-status.yaml using kubectl command which is why it's causing PodSecurity error.
    Solution -> Create a custom set-status task with required security contexts.
+3) To Resolve :
+```
+May 29, 1:46:48 AMTraceback (most recent call last):
+May 29, 1:46:48 AM  File "/tekton/scripts/script-0-82tvj", line 8, in <module>
+May 29, 1:46:48 AM    with open(token_path, "r") as f:
+May 29, 1:46:48 AM         ^^^^^^^^^^^^^^^^^^^^^
+May 29, 1:46:48 AMFileNotFoundError: [Errno 2] No such file or directory: '/etc/github-set-status/token'
+
+```
 
    ---
 
