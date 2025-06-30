@@ -74,6 +74,26 @@ spec:
         - clone-repo
       workspaces:
         - name: tekton-learning-workspace
+    
+    - name: dbt-extract
+      taskRef:
+        name: extract-orders
+        kind: Task
+      runAfter:
+        - run-tests
+      workspaces:
+        - name: source
+          workspace: tekton-learning-workspace
+
+    - name: dbt-transform
+      taskRef:
+        name: dbt-run
+        kind: Task
+      runAfter:
+        - dbt-extract
+      workspaces:
+        - name: source
+          workspace: tekton-learning-workspace
 
     # - name: push-to-github
     #   taskRef:
@@ -114,6 +134,7 @@ spec:
           value: ""
         - name: GITHUB_HOST_URL
           value: $(params.GITHUB_HOST_URL)
+    
     - name: set-status-failure
       when:
         - input: $(tasks.run-tests.status)

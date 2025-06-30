@@ -1,0 +1,50 @@
+version: 2
+
+sources:
+  - name: raw
+    tables:
+      - name: orders
+        description: "Raw orders data loaded from CSV"
+        columns:
+          - name: order_id
+            tests:
+              - not_null
+              - unique
+          - name: customer_id
+            tests:
+              - not_null
+          - name: order_date
+            tests:
+              - not_null
+
+models:
+  - name: stg_orders
+    description: "Cleaned orders data"
+    columns:
+      - name: order_id
+        description: "Unique identifier for each order"
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: "Customer placing the order"
+        tests:
+          - not_null
+      - name: order_date
+        description: "Date of the order"
+        tests:
+          - not_null
+      - name: total_amount
+        description: "Amount of the order"
+
+  - name: fct_sales
+    description: "Aggregated sales data by customer"
+    columns:
+      - name: customer_id
+        description: "Customer identifier"
+        tests:
+          - not_null
+      - name: total_orders
+        description: "Total number of orders placed"
+      - name: revenue
+        description: "Total revenue generated"

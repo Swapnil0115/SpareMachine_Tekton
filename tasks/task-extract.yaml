@@ -1,0 +1,28 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: extract-orders
+  namespace: tekton-pipelines
+spec:
+  workspaces:
+    - name: tekton-learning-workspace
+  steps:
+    - name: download-orders
+      image: python:3.10
+      script: |
+        pip install pandas gcsfs
+        python -c """ 
+        import pandas as pd
+        # Simulated extract
+        df = pd.DataFrame({'order_id':[1,2], 'customer_id':[10,20], 'order_date':['2023-01-01','2023-01-02'], 'total_amount':[100, 150]})
+        df.to_csv('/workspace/tekton-learning-workspace/seeds/orders.csv', index=False)
+        """
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop: ["ALL"]
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault

@@ -1,0 +1,10 @@
+my_profile:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: your-gcp-project
+      dataset: raw
+      threads: 1
+      keyfile: /workspace/tekton-learning-workspace/.dbt/service-account.json

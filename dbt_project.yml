@@ -1,0 +1,16 @@
+name: my_dbt_project
+version: '1.0'
+profile: my_profile
+
+seeds:
+  my_dbt_project:
+    +schema: raw
+
+models:
+  my_dbt_project:
+    staging:
+      +schema: staging
+      +materialized: view
+    marts:
+      +schema: marts
+      +materialized: table

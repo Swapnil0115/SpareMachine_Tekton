@@ -1,0 +1,26 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: dbt-run
+  namespace: tekton-pipelines
+spec:
+  workspaces:
+    - name: tekton-learning-workspace
+  steps:
+    - name: dbt-transform
+      image: ghcr.io/dbt-labs/dbt-bigquery:1.6.5
+      workingDir: /workspace/tekton-learning-workspace
+      script: |
+        dbt deps
+        dbt seed --profiles-dir .dbt
+        dbt run --profiles-dir .dbt --target dev
+        dbt test --profiles-dir .dbt
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop: ["ALL"]
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
